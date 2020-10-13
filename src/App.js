@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SpellFinder from './Components/SpellFinder/SpellFinder';
+import ComponentDisplay from './Components/ComponentsDisplay/ComponentsDisplay';
+import Dnd5e from './util/dnd5e';
 
 function App() {
+  console.log(Dnd5e.searchSpells('guiding bolt'));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header>Does that spell take components to cast?</header>
+      <SpellFinder />
+      <ComponentDisplay />
     </div>
   );
 }
