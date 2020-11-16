@@ -3,12 +3,18 @@ import Spell from '../Spell/Spell';
 import './Results.css';
 
 class Results extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
+    //prop: search results
+
     render(){
         return(
             <ul>
-                <li>
-                    <Spell></Spell>
-                </li>
+                {this.props.searchResults.map(spell =>(
+                    <Spell spell={spell} name={spell.name} url={spell.url}></Spell>
+                ))}
             </ul>
         )
     }
