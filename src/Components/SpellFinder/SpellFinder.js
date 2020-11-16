@@ -6,9 +6,9 @@ import './SpellFinders.css';
 
 class SpellFinder extends React.Component{
     constructor(props){
+        console.log('constructor');
         super(props);
         this.search = this.search.bind(this);
-
         this.state = {
             searchResults: []
         }
@@ -16,9 +16,13 @@ class SpellFinder extends React.Component{
     
 
     search(term){
-        Dnd5e.searchSpells(term).then( promise =>{
-            this.setState({ searchResults: promise.results});
-        });
+        console.log('search');
+        this.setState({searchResults: ['testResult']});
+        // const promise = Dnd5e.searchSpells(term);
+        // promise.then( promise => {
+        //     this.setState({searchResults: promise.results});
+        // });
+        
     }
 
     render(){
