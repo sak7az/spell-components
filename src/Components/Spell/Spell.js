@@ -10,7 +10,7 @@ class Spell extends React.Component{
         return(
             <React.Fragment>
                 <img></img>
-                <p>Spell Name</p>
+                <p>{this.props.name}</p>
             </React.Fragment>
         )
     }
