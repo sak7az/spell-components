@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
         super(props);
         this.handleTermChange = this.handleTermChange.bind(this);
         this.state = {
-            term: 'guiding bolt',
+            term: ''
         }
         this.search = this.search.bind(this);
     }
@@ -17,15 +17,15 @@ class SearchBar extends React.Component {
 
     search(){
         if (this.state.term){
-            this.props.onSearch(this.state.term);
-;        }
+           this.props.onSearch(this.state.term);     
+        }
     }
 
     render(){
         return(
             <form className="SearchBar"> 
                 <input type="text" id="SearchTerm" placeholder="What's the name of the spell?" onChange={this.handleTermChange}></input>
-                <button type="submit" onClick={this.search}>Search</button>
+                <button type="button" onClick={this.search}>Search</button>
             </form>
         );
     }

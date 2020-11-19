@@ -6,7 +6,7 @@ class ComponentList extends React.Component{
     render(){
         return(
             <ul>
-                <li>tuft of fur or feathers</li>
+                
             </ul>
         )
     }

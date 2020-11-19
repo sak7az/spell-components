@@ -7,13 +7,11 @@ class Results extends React.Component{
         super(props);
     }
 
-    //prop: search results
-
     render(){
         return(
             <ul>
                 {this.props.searchResults.map(spell =>(
-                    <Spell spell={spell} name={spell.name} url={spell.url}></Spell>
+                    <Spell spell={spell} name={spell.name} key={spell.name} url={spell.url}></Spell>
                 ))}
             </ul>
         )
