@@ -9,7 +9,8 @@ class SpellFinder extends React.Component{
         super(props);
         this.search = this.search.bind(this);
         this.state = {
-            searchResults: []
+            searchResults: [],
+            resultsIn: true
         }
     }
     
@@ -18,6 +19,16 @@ class SpellFinder extends React.Component{
         const promise = Dnd5e.searchSpells(term);
         promise.then( promise => {
             this.setState({searchResults: promise.results});
+            if (this.state.searchResults.length === 0) { 
+                this.setState({
+                    resultsIn: false
+                })
+            }
+            else {
+                this.setState({
+                    resultsIn: true
+                })
+            }
         });
         
     }
@@ -26,7 +37,7 @@ class SpellFinder extends React.Component{
         return(
             <div id='SpellFinder'>
                 <SearchBar onSearch={this.search}></SearchBar>
-                <Results searchResults={this.state.searchResults}></Results>
+                <Results searchResults={this.state.searchResults} resultsIn={this.state.resultsIn}></Results>
             </div>
         )
     }

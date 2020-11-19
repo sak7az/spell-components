@@ -15,7 +15,6 @@ class App extends Component {
       <div className="App">
         <header>Does that spell take components to cast?</header>
         <SpellFinder />
-        <ComponentDisplay />
       </div>
     );
   }

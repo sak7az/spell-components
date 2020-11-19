@@ -4,13 +4,17 @@ import './Spell.css';
 class Spell extends React.Component{
     constructor(props){
         super(props);
+        this.handleClick=this.handleClick.bind(this);
+    }
+
+    handleClick(){
+
     }
     
     render(){
         return(
             <React.Fragment>
-                <img></img>
-                <p>{this.props.name}</p>
+                <a onClick={this.handleClick}>{this.props.name}</a>
             </React.Fragment>
         )
     }
