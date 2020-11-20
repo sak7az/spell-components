@@ -20,12 +20,12 @@ class SpellFinder extends React.Component{
             this.setState({searchResults: promise.results});
             if (this.state.searchResults.length === 0) { 
                 this.setState({
-                    noResults: true
+                    noResults: true,
                 })
             }
             else {
                 this.setState({
-                    noResults: false
+                    noResults: false,
                 })
             }
         });
@@ -36,7 +36,10 @@ class SpellFinder extends React.Component{
         return(
             <div id='SpellFinder'>
                 <SearchBar onSearch={this.search}></SearchBar>
-                <Results searchResults={this.state.searchResults} noResults={this.state.noResults}></Results>
+                <Results 
+                    searchResults={this.state.searchResults} 
+                    noResults={this.state.noResults}
+                ></Results>
             </div>
         )
     }

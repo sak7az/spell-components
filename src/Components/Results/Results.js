@@ -16,7 +16,7 @@ class Results extends React.Component{
 
     selectionGetter = (spell) => {
         this.setState({
-            selection: spell
+            selection: spell,
         });
         this.getSpellObject();
     }
@@ -70,8 +70,11 @@ class Results extends React.Component{
             </div>
             
         );
+                        
 
-        if (this.state.selection){
+        if (this.props.clearSelection){
+            return results;
+        } else if (this.state.selection){
             return resultsWithSelection;       
         } else if (!this.props.noResults){
             return results;
