@@ -14,7 +14,7 @@ class Spell extends React.Component{
     render(){
         return(
             <React.Fragment>
-                <a onClick={this.handleClick}>{this.props.name}</a>
+                <button onClick={this.handleClick}>{this.props.name}</button>
             </React.Fragment>
         )
     }

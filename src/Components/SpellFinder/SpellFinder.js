@@ -13,6 +13,7 @@ class SpellFinder extends React.Component{
         this.getSpellObject = this.getSpellObject.bind(this);
         this.state = {
             searchResults: [],
+            selectionMade: false
         }
     }
     
@@ -49,40 +50,30 @@ class SpellFinder extends React.Component{
             if(promise){
                 this.setState({
                     selectedSpell: promise,
+                    materialComponents : promise.material,
                     selectionMade: true
                 });
             }
         })
     }
 
-    componentsDisplaySwitcher(selectionMade){
-        if (selectionMade) {
-            return (
-                <ComponentsDisplay 
-                    materialComponents={this.state.selectedSpell.material}
-                />
-            )
-        }
-    }
-
-
-
     render(){
         return(
             <div id='SpellFinder'>
                 <SearchBar onSearch={this.search}></SearchBar>
-                <ul>
-                    {this.state.searchResults.map(spell =>(
-                        <Spell 
-                            spell={spell} 
-                            name={spell.name} 
-                            key={spell.name} 
-                            url={spell.url}
-                            onClick={this.selectionGetter}
-                        ></Spell>
-                    ))}
-                </ul>
-                {this.componentsDisplaySwitcher(this.state.selectionMade)}
+                {this.state.searchResults.map(spell =>(
+                    <Spell 
+                        spell={spell} 
+                        name={spell.name} 
+                        key={spell.name} 
+                        url={spell.url}
+                        onClick={this.selectionGetter}
+                    ></Spell>
+                ))}
+                <ComponentsDisplay 
+                    selectionMade={this.state.selectionMade} 
+                    materialComponents={this.state.materialComponents}
+                />
             </div>
         )
     }
