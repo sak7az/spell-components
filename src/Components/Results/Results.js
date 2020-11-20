@@ -1,11 +1,23 @@
 import React from 'react';
-import ComponentList from '../ComponentList/ComponentList';
+import ComponentsDisplay from '../ComponentsDisplay/ComponentsDisplay';
 import Spell from '../Spell/Spell';
 import './Results.css';
 
 class Results extends React.Component{
     constructor(props){
         super(props);
+        this.selectionGetter = this.selectionGetter.bind(this)
+        this.state = {
+            selection : ''
+        }
+    }
+
+    selectionGetter = (spell) => {
+        this.setState({
+            selection: spell
+        });
+        console.log('selectionGetter');
+        console.log(this.state.selection);
     }
 
     render(){
@@ -14,10 +26,16 @@ class Results extends React.Component{
                 <div>
                     <ul>
                         {this.props.searchResults.map(spell =>(
-                            <Spell spell={spell} name={spell.name} key={spell.name} url={spell.url}></Spell>
+                            <Spell 
+                                spell={spell} 
+                                name={spell.name} 
+                                key={spell.name} 
+                                url={spell.url}
+                                onClick={this.selectionGetter}
+                            ></Spell>
                         ))}
                     </ul>
-                    <ComponentList />
+                    <ComponentsDisplay spell={this.selection}/>
                 </div>
                 
             )

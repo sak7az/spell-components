@@ -8,7 +8,7 @@ class Spell extends React.Component{
     }
 
     handleClick(){
-
+        this.props.onClick(this.props.spell)
     }
     
     render(){
