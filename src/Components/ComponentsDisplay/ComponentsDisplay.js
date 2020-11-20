@@ -12,7 +12,8 @@ class ComponentsDisplay extends React.Component{
     render(){
         const spellDisplayWithComponents =(
             <div>
-                <p>materials found</p>
+                <p>You're gonna need... </p>
+                <p>{this.props.materialComponents}</p>
             </div>
         )
 
@@ -22,17 +23,11 @@ class ComponentsDisplay extends React.Component{
             </div>
         )
 
-        const emptyDiv =(
-            <div></div>
-        )
 
-
-        if (this.props.materialComponents && this.props.searchCalled){
+        if (this.props.materialComponents){
             return spellDisplayWithComponents;
-        } else if (this.props.searchCalled) {
-            return spellDisplayNoComponents;
         } else {
-            return emptyDiv;
+            return spellDisplayNoComponents;
         }
     }
 }

@@ -35,32 +35,49 @@ class Results extends React.Component{
     }
 
     render(){
-        console.log(this.state.materialComponents);
         const results = (
             <div>
-                    <ul>
-                        {this.props.searchResults.map(spell =>(
-                            <Spell 
-                                spell={spell} 
-                                name={spell.name} 
-                                key={spell.name} 
-                                url={spell.url}
-                                onClick={this.selectionGetter}
-                            ></Spell>
-                        ))}
-                    </ul>
-                    <ComponentsDisplay 
-                        spell={this.state.selection} 
-                        materialComponents={this.state.materialComponents}
-                        searchCalled={this.state.searchCalled}
-                    />
-                </div>
+                <ul>
+                    {this.props.searchResults.map(spell =>(
+                        <Spell 
+                            spell={spell} 
+                            name={spell.name} 
+                            key={spell.name} 
+                            url={spell.url}
+                            onClick={this.selectionGetter}
+                        ></Spell>
+                    ))}
+                </ul>
+            </div>
+        );
+        const resultsWithSelection =(
+            <div>
+                <ul>
+                    {this.props.searchResults.map(spell =>(
+                        <Spell 
+                            spell={spell} 
+                            name={spell.name} 
+                            key={spell.name} 
+                            url={spell.url}
+                            onClick={this.selectionGetter}
+                        ></Spell>
+                    ))}
+                </ul>
+                <ComponentsDisplay 
+                    spell={this.state.selection} 
+                    materialComponents={this.state.materialComponents}
+                    searchCalled={this.state.searchCalled}
+                />
+            </div>
+            
+        );
 
-        )
-
-        if (this.props.resultsIn === true){
+        if (this.props.resultsIn && this.state.selection === ''){
             return results;
-        } else if (this.props.resultsIn === false){
+        } else if (this.props.resultsIn){
+            return resultsWithSelection;
+        }   
+        else{
             return(
                 <h1>No results found</h1>
             )  
