@@ -10,7 +10,8 @@ class Results extends React.Component{
         this.selectionGetter = this.selectionGetter.bind(this);
         this.getSpellObject = this.getSpellObject.bind(this);
         this.state = {
-            selection : ''
+            selection : '',
+            searchCalled: false
         }
     }
 
@@ -26,7 +27,8 @@ class Results extends React.Component{
         promise.then( promise =>{
             if(promise){
                 this.setState({
-                    materialComponents: promise.material
+                    materialComponents: promise.material,
+                    searchCalled: true
                 });
             }
         })
@@ -50,6 +52,7 @@ class Results extends React.Component{
                     <ComponentsDisplay 
                         spell={this.state.selection} 
                         materialComponents={this.state.materialComponents}
+                        searchCalled={this.state.searchCalled}
                     />
                 </div>
 

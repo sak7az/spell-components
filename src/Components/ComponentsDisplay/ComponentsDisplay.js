@@ -18,7 +18,7 @@ class ComponentsDisplay extends React.Component{
 
         const spellDisplayNoComponents =(
             <div>
-
+                <p>Looks like you're good to go! This spell doesn't require material components.</p>
             </div>
         )
 
