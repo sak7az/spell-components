@@ -16,14 +16,12 @@ class Results extends React.Component{
         this.setState({
             selection: spell
         });
-        console.log('selectionGetter');
-        console.log(this.state.selection);
     }
 
     render(){
-        if (this.props.resultsIn === true){
-            return(
-                <div>
+
+        const results = (
+            <div>
                     <ul>
                         {this.props.searchResults.map(spell =>(
                             <Spell 
@@ -35,10 +33,12 @@ class Results extends React.Component{
                             ></Spell>
                         ))}
                     </ul>
-                    <ComponentsDisplay spell={this.selection}/>
+                    <ComponentsDisplay spell={this.state.selection}/>
                 </div>
-                
-            )
+        )
+
+        if (this.props.resultsIn === true){
+            return results;
         } else if (this.props.resultsIn === false){
             return(
                 <h1>No results found</h1>
