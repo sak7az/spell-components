@@ -2,11 +2,14 @@ import React from 'react';
 import ComponentsDisplay from '../ComponentsDisplay/ComponentsDisplay';
 import Spell from '../Spell/Spell';
 import './Results.css';
+import Dnd5e from '../../util/dnd5e';
 
 class Results extends React.Component{
     constructor(props){
         super(props);
-        this.selectionGetter = this.selectionGetter.bind(this)
+        this.selectionGetter = this.selectionGetter.bind(this);
+        this.getSpellObject = this.getSpellObject.bind(this);
+        this.parseSpellObject = this.parseSpellObject.bind(this);
         this.state = {
             selection : ''
         }
@@ -16,6 +19,19 @@ class Results extends React.Component{
         this.setState({
             selection: spell
         });
+    }
+
+    getSpellObject(){
+        const promise = Dnd5e.retrieveSpell(this.props.spell);
+        promise.then( promise =>{
+            this.parseSpellObject(promise);
+        })
+    }
+
+    parseSpellObject(spellJson){
+        this.setState({
+            materialComponents: spellJson.material
+        })
     }
 
     render(){
