@@ -12,7 +12,7 @@ class ComponentsDisplay extends React.Component{
     render(){
         const spellDisplayWithComponents =(
             <div>
-
+                <p>materials found</p>
             </div>
         )
 
@@ -23,7 +23,11 @@ class ComponentsDisplay extends React.Component{
         )
 
 
-        return spellDisplayWithComponents;
+        if (this.props.materialComponents){
+            return spellDisplayWithComponents;
+        } else {
+            return spellDisplayNoComponents;
+        }
     }
 }
 

@@ -9,7 +9,6 @@ class Results extends React.Component{
         super(props);
         this.selectionGetter = this.selectionGetter.bind(this);
         this.getSpellObject = this.getSpellObject.bind(this);
-        this.parseSpellObject = this.parseSpellObject.bind(this);
         this.state = {
             selection : ''
         }
@@ -19,23 +18,22 @@ class Results extends React.Component{
         this.setState({
             selection: spell
         });
+        this.getSpellObject();
     }
 
     getSpellObject(){
-        const promise = Dnd5e.retrieveSpell(this.props.spell);
+        const promise = Dnd5e.retrieveSpell(this.state.selection);
         promise.then( promise =>{
-            this.parseSpellObject(promise);
-        })
-    }
-
-    parseSpellObject(spellJson){
-        this.setState({
-            materialComponents: spellJson.material
+            if(promise){
+                this.setState({
+                    materialComponents: promise.material
+                });
+            }
         })
     }
 
     render(){
-
+        console.log(this.state.materialComponents);
         const results = (
             <div>
                     <ul>
@@ -49,8 +47,12 @@ class Results extends React.Component{
                             ></Spell>
                         ))}
                     </ul>
-                    <ComponentsDisplay spell={this.state.selection}/>
+                    <ComponentsDisplay 
+                        spell={this.state.selection} 
+                        materialComponents={this.state.materialComponents}
+                    />
                 </div>
+
         )
 
         if (this.props.resultsIn === true){
