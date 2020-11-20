@@ -22,11 +22,17 @@ class ComponentsDisplay extends React.Component{
             </div>
         )
 
+        const emptyDiv =(
+            <div></div>
+        )
 
-        if (this.props.materialComponents){
+
+        if (this.props.materialComponents && this.props.searchCalled){
             return spellDisplayWithComponents;
-        } else {
+        } else if (this.props.searchCalled) {
             return spellDisplayNoComponents;
+        } else {
+            return emptyDiv;
         }
     }
 }
