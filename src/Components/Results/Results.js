@@ -10,7 +10,6 @@ class Results extends React.Component{
         this.selectionGetter = this.selectionGetter.bind(this);
         this.getSpellObject = this.getSpellObject.bind(this);
         this.state = {
-            selection : '',
             searchCalled: false
         }
     }
@@ -72,15 +71,14 @@ class Results extends React.Component{
             
         );
 
-        if (this.props.resultsIn && this.state.selection === ''){
+        if (this.state.selection){
+            return resultsWithSelection;       
+        } else if (!this.props.noResults){
             return results;
-        } else if (this.props.resultsIn){
-            return resultsWithSelection;
-        }   
-        else{
-            return(
-                <h1>No results found</h1>
-            )  
+        } else {
+            return (
+                <p>Sorry, there were no spells matching that search.</p>
+            )
         }
     }
 }
