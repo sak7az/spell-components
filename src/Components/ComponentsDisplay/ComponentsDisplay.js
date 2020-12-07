@@ -11,14 +11,14 @@ class ComponentsDisplay extends React.Component{
         if (this.props.materialComponents){
             return(
                 <div>
-                    <p>You're gonna need... </p>
-                    <p>{this.props.materialComponents}</p>
+                    <p className='results'>You're gonna need... </p>
+                    <p className='results'>{this.props.materialComponents}</p>
                 </div>
             )
         } else {
             return(
                 <div>
-                    <p>Looks like you're good to go! This spell doesn't require material components.</p>
+                    <p className= 'results'>Looks like you're good to go! This spell doesn't require material components.</p>
                 </div>
             )
         }

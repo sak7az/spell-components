@@ -13,8 +13,8 @@ class Spell extends React.Component{
     
     render(){
         return(
-            <React.Fragment>
-                <button onClick={this.handleClick}>{this.props.name}</button>
+            <React.Fragment >
+                <button className='spell' onClick={this.handleClick}>{this.props.name}</button>
             </React.Fragment>
         )
     }

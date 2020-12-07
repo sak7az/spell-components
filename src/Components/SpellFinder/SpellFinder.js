@@ -1,9 +1,10 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import Spell from '../Spell/Spell';
-import ComponentsDisplay from '../ComponentsDisplay/ComponentsDisplay'
+import ComponentsDisplay from '../ComponentsDisplay/ComponentsDisplay';
+import ResultsMessage from '../ResultsMessage/ResultsMessage';
 import Dnd5e from '../../util/dnd5e';
-import './SpellFinders.css';
+import './SpellFinder.css';
 
 class SpellFinder extends React.Component{
     constructor(props){
@@ -41,11 +42,11 @@ class SpellFinder extends React.Component{
         this.setState({
             selection: spell
         });
-        this.getSpellObject();
+        this.getSpellObject(spell);
     }
 
-    getSpellObject(){
-        const promise = Dnd5e.retrieveSpell(this.state.selection);
+    getSpellObject(spell){
+        const promise = Dnd5e.retrieveSpell(spell);
         promise.then( promise =>{
             if(promise){
                 this.setState({
@@ -61,6 +62,7 @@ class SpellFinder extends React.Component{
         return(
             <div id='SpellFinder'>
                 <SearchBar onSearch={this.search}></SearchBar>
+                <div id='spells'>
                 {this.state.searchResults.map(spell =>(
                     <Spell 
                         spell={spell} 
@@ -70,6 +72,8 @@ class SpellFinder extends React.Component{
                         onClick={this.selectionGetter}
                     ></Spell>
                 ))}
+                </div>
+                <ResultsMessage resultsNotFound={this.state.noResults}/>
                 <ComponentsDisplay 
                     selectionMade={this.state.selectionMade} 
                     materialComponents={this.state.materialComponents}

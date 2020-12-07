@@ -35,12 +35,11 @@ class SearchBar extends React.Component {
     render(){
         return(
             <form className="SearchBar" onSubmit={this.handleSubmit}> 
-                <input type="text" id="SearchTerm" placeholder="What's the name of the spell?" onChange={this.handleTermChange} onKeyUp={this.handleKeyUp}></input>
+                <input type="text" id="SearchTerm" placeholder="Search spells by name..." onChange={this.handleTermChange} onKeyUp={this.handleKeyUp}></input>
                 <button 
-                    type="button" 
+                    id="button"
                     onClick={this.search}
-                    
-                    >Search</button>
+                    >Click to search</button>
             </form>
         );
     }
