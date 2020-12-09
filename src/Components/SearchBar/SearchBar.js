@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
     }
 
     search(){
-        if (this.state.term){
+        if (this.state.term && this.state.term.length >= 2){
            this.props.onSearch(this.state.term);     
         }
     }
