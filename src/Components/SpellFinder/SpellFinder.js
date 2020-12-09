@@ -69,6 +69,7 @@ class SpellFinder extends React.Component{
                         name={spell.name} 
                         key={spell.name} 
                         url={spell.url}
+                        selection={this.state.selection}
                         onClick={this.selectionGetter}
                     ></Spell>
                 ))}

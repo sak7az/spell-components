@@ -12,10 +12,13 @@ class Spell extends React.Component{
     }
     
     render(){
+        if (this.props.spell === this.props.selection){
+            return(
+                <button className='spell' id='selectedSpell' onClick={this.handleClick}>{this.props.name}</button>
+            )
+        }
         return(
-            <React.Fragment >
-                <button className='spell' onClick={this.handleClick}>{this.props.name}</button>
-            </React.Fragment>
+            <button className='spell' onClick={this.handleClick}>{this.props.name}</button>
         )
     }
 }
