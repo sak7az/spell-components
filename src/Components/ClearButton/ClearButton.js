@@ -3,9 +3,13 @@ import './ClearButton.css';
 
 class ClearButton extends React.Component {
 
+    onClick(){
+        window.location.reload(false);
+    }
+
     render(){
         return (
-            <button type='button'></button>
+            <button type='button' onClick={this.onClick}>Clear Search</button>
         )
     }
 
