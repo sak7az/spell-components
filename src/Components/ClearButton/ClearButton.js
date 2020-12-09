@@ -13,7 +13,7 @@ class ClearButton extends React.Component {
                 type='button' 
                 className='largeTxt  button'
                 onClick={this.onClick}>
-                    Clear Search
+                    Clear
             </button>
         )
     }
