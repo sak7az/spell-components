@@ -61,6 +61,7 @@ class SpellFinder extends React.Component{
     render(){
         return(
             <div id='SpellFinder'>
+                <header className='largeTxt'>Does my spell take components to cast?</header>
                 <SearchBar onSearch={this.search}></SearchBar>
                 <div id='spells'>
                 {this.state.searchResults.map(spell =>(

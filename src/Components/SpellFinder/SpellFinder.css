@@ -1,4 +1,8 @@
 
+header {
+    margin-top: 10%;
+}
+
 #spells {
     display: inline-flex;
     width: 45%;
@@ -50,4 +54,18 @@
 
 .medTxt {
     font-size: 1.8em;
+}
+
+@media screen and (max-width: 500px) {
+    .largeTxt {
+        font-size: 1.2em;
+    }
+    .medTxt {
+        font-size: 1em;
+    }
+
+    #SearchTerm {
+        width: 80%;
+    }
+
 }
