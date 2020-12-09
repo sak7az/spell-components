@@ -14,14 +14,12 @@ class ComponentsDisplay extends React.Component{
                 <div>
                     <p className='largeTxt  results'>You're gonna need... </p>
                     <p className='largeTxt  results'>{this.props.materialComponents}</p>
-                    <ClearButton />
                 </div>
             )
         } else {
             return(
                 <div>
                     <p className='largeTxt  results'>Looks like you're good to go! This spell doesn't require material components.</p>
-                    <ClearButton />
                 </div>
             )
         }

@@ -23,6 +23,7 @@
 .button {
     display: inline-block;
     padding: .3em;
+    margin: .3em;
     background-color: #9A0E16;
     color: #E1E1E1;
     border: solid black 2px;

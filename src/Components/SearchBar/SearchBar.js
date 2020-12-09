@@ -1,4 +1,5 @@
 import React from 'react';
+import ClearButton from '../ClearButton/ClearButton';
 import './SearchBar.css';
 
 class SearchBar extends React.Component {
@@ -40,12 +41,16 @@ class SearchBar extends React.Component {
                     type="text" id="SearchTerm" 
                     placeholder="Search spells by name..." 
                     onChange={this.handleTermChange} 
-                    onKeyUp={this.handleKeyUp}></input>
+                    onKeyUp={this.handleKeyUp}>
+
+                </input>
+                <br></br>
                 <button 
                     className='largeTxt  button'
                     onClick={this.search}>
                         Search
                 </button>
+                <ClearButton />
             </form>
         );
     }
