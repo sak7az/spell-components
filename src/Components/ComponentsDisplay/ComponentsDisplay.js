@@ -1,4 +1,5 @@
 import React from 'react';
+import ClearButton from '../ClearButton/ClearButton';
 import './ComponentsDisplay.css';
 
 class ComponentsDisplay extends React.Component{
@@ -13,12 +14,14 @@ class ComponentsDisplay extends React.Component{
                 <div>
                     <p className='results'>You're gonna need... </p>
                     <p className='results'>{this.props.materialComponents}</p>
+                    <ClearButton />
                 </div>
             )
         } else {
             return(
                 <div>
                     <p className= 'results'>Looks like you're good to go! This spell doesn't require material components.</p>
+                    <ClearButton />
                 </div>
             )
         }
