@@ -56,7 +56,7 @@ header {
     font-size: 1.8em;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 580px) {
     .largeTxt {
         font-size: 1.2em;
     }
