@@ -35,11 +35,17 @@ class SearchBar extends React.Component {
     render(){
         return(
             <form className="SearchBar" onSubmit={this.handleSubmit}> 
-                <input type="text" id="SearchTerm" placeholder="Search spells by name..." onChange={this.handleTermChange} onKeyUp={this.handleKeyUp}></input>
+                <input 
+                    className='largeTxt'
+                    type="text" id="SearchTerm" 
+                    placeholder="Search spells by name..." 
+                    onChange={this.handleTermChange} 
+                    onKeyUp={this.handleKeyUp}></input>
                 <button 
-                    className="button"
-                    onClick={this.search}
-                    >Click to search</button>
+                    className='largeTxt  button'
+                    onClick={this.search}>
+                        Search
+                </button>
             </form>
         );
     }

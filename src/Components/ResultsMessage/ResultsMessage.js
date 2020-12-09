@@ -9,7 +9,7 @@ class ResultsMessage extends React.Component {
         );
         if (this.props.resultsNotFound){
             response = (
-                <p className='results'>Looks like there are no spells in this database matching your search.</p>
+                <p className='largeTxt  results'>Looks like there are no spells in this database matching your search.</p>
             );
         }
         return response;

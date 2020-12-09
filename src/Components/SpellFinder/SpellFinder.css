@@ -9,7 +9,6 @@
 .spell {
     display: inline-block;
     background-color: rgba(190, 129, 126);
-    font-size: 1.8em;
     margin: .25em;
     padding: .3em;
     border: solid black 1px;
@@ -17,7 +16,6 @@
 }
 
 .results {
-    font-size: 2.25em;
     width: 50%;
     margin: 1em auto 1em auto
 }
@@ -35,4 +33,20 @@
 #selectedSpell {
     background-color: black;
     color: white;
+}
+
+#SearchTerm {
+    padding: .3em;
+    width: 30%;
+    border: solid black 2px;
+    border-radius: 9px;
+    margin: 29px;
+}
+
+.largeTxt {
+    font-size: 2.25em;
+} 
+
+.medTxt {
+    font-size: 1.8em;
 }

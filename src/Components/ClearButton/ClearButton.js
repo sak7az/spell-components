@@ -11,7 +11,7 @@ class ClearButton extends React.Component {
         return (
             <button 
                 type='button' 
-                className='button' 
+                className='largeTxt  button'
                 onClick={this.onClick}>
                     Clear Search
             </button>

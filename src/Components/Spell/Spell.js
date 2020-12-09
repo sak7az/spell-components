@@ -14,11 +14,11 @@ class Spell extends React.Component{
     render(){
         if (this.props.spell === this.props.selection){
             return(
-                <button className='spell' id='selectedSpell' onClick={this.handleClick}>{this.props.name}</button>
+                <button className='medTxt  spell' id='selectedSpell' onClick={this.handleClick}>{this.props.name}</button>
             )
         }
         return(
-            <button className='spell' onClick={this.handleClick}>{this.props.name}</button>
+            <button className='medTxt  spell' onClick={this.handleClick}>{this.props.name}</button>
         )
     }
 }
