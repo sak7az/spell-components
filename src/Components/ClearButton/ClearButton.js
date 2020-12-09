@@ -9,7 +9,12 @@ class ClearButton extends React.Component {
 
     render(){
         return (
-            <button type='button' onClick={this.onClick}>Clear Search</button>
+            <button 
+                type='button' 
+                className='button' 
+                onClick={this.onClick}>
+                    Clear Search
+            </button>
         )
     }
 
