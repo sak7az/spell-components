@@ -1,6 +1,4 @@
 import React from 'react';
-import ClearButton from '../ClearButton/ClearButton';
-import './ComponentsDisplay.css';
 
 class ComponentsDisplay extends React.Component{
     constructor(props){

@@ -1,6 +1,5 @@
 import React from 'react';
 import ClearButton from '../ClearButton/ClearButton';
-import './SearchBar.css';
 
 class SearchBar extends React.Component {
     constructor(props){

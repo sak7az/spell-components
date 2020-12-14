@@ -1,5 +1,4 @@
 import React from 'react';
-import './ResultsMessage.css';
 
 class ResultsMessage extends React.Component {
 

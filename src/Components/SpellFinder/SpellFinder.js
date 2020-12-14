@@ -1,8 +1,7 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import Spell from '../Spell/Spell';
-import ComponentsDisplay from '../ComponentsDisplay/ComponentsDisplay';
-import ResultsMessage from '../ResultsMessage/ResultsMessage';
+import Results from '../Results/Results';
 import Dnd5e from '../../util/dnd5e';
 import './SpellFinder.css';
 
@@ -75,9 +74,9 @@ class SpellFinder extends React.Component{
                     ></Spell>
                 ))}
                 </div>
-                <ResultsMessage resultsNotFound={this.state.noResults}/>
-                <ComponentsDisplay 
-                    selectionMade={this.state.selectionMade} 
+                <Results 
+                    resultsNotFound={this.state.noResults}
+                    selectionMade={this.state.selectionMade}
                     materialComponents={this.state.materialComponents}
                 />
             </div>
