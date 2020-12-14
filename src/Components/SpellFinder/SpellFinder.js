@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import Spell from '../Spell/Spell';
-import Results from '../Results/Results';
 import Dnd5e from '../../util/dnd5e';
 import './SpellFinder.css';
 
@@ -13,7 +12,6 @@ class SpellFinder extends React.Component{
         this.getSpellObject = this.getSpellObject.bind(this);
         this.state = {
             searchResults: [],
-            selectionMade: false
         }
     }
     
@@ -22,17 +20,13 @@ class SpellFinder extends React.Component{
         promise.then( promise => {
             this.setState({
                 searchResults: promise.results,
-                selectionMade: false
             });
+            this.props.passSelectionMade(false);
             if (this.state.searchResults.length === 0) { 
-                this.setState({
-                    noResults: true,
-                })
+                this.props.passNoResults(true);
             }
             else {
-                this.setState({
-                    noResults: false,
-                })
+                this.props.passNoResults(false);
             }
         });
     }
@@ -50,9 +44,9 @@ class SpellFinder extends React.Component{
             if(promise){
                 this.setState({
                     selectedSpell: promise,
-                    materialComponents : promise.material,
-                    selectionMade: true
                 });
+                this.props.passMaterialComponents(promise.material);
+                this.props.passSelectionMade(true);
             }
         })
     }
@@ -74,11 +68,6 @@ class SpellFinder extends React.Component{
                     ></Spell>
                 ))}
                 </div>
-                <Results 
-                    resultsNotFound={this.state.noResults}
-                    selectionMade={this.state.selectionMade}
-                    materialComponents={this.state.materialComponents}
-                />
             </div>
         )
     }
